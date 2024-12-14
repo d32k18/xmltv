@@ -38,3 +38,4 @@ jobs:
           git commit -m "Fusion des fichiers XML automatique"
           # Utiliser GH_TOKEN pour authentification
           git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
+
