@@ -15,10 +15,10 @@ jobs:
         uses: actions/checkout@v3
 
       # Étape 2 : Installer Python
-        - name: Set up Python
-          uses: actions/setup-python@v4
-          with:
-            python-version: '3.x'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
 
       # Étape 3 : Exécuter le script Python pour fusionner les fichiers XML
       - name: Run merge_xml.py script
@@ -38,4 +38,3 @@ jobs:
           git commit -m "Fusion des fichiers XML automatique"
           # Utiliser GH_TOKEN pour authentification
           git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
-
