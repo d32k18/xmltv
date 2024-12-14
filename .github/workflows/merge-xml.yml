@@ -25,13 +25,17 @@ jobs:
         run: |
           python merge_xml.py
 
-      # Étape 4 : Ajouter et commiter le fichier fusionné
+      # Étape 4 : Configurer Git et l'authentification via GH_TOKEN
+      - name: Set up Git authentication
+        uses: actions/configure-git@v2
+        with:
+          git_user_name: 'GitHub Actions'
+          git_user_email: 'actions@github.com'
+
+      # Étape 5 : Committer et pousser les fichiers
       - name: Commit and push merged XML file
         run: |
-          git config --global user.name 'GitHub Actions'
-          git config --global user.email 'actions@github.com'
           git add xmltv_full.xml
           git commit -m "Fusion des fichiers XML automatique"
-          
-          # Utiliser GITHUB_TOKEN pour authentification
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          # Utiliser GH_TOKEN pour authentification
+          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git
