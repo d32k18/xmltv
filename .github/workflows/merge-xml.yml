@@ -2,11 +2,8 @@ name: Merge XML Files
 
 on:
   schedule:
-    # En hiver (UTC+1) : Exécuter à 23h05 UTC, soit minuit et 5 minutes à Paris
-    - cron: '5 23 * * *'  # Exécuter tous les jours à 23h05 UTC (minuit et 5 minutes à Paris)
-    # En été (UTC+2) : Exécuter à 22h05 UTC, soit minuit et 5 minutes à Paris
-    - cron: '5 22 * * *'  # Exécuter tous les jours à 22h05 UTC (minuit et 5 minutes à Paris)
-  workflow_dispatch:
+    - cron: "5 0 * * *"  # Exécution tous les jours à minuit UTC
+  workflow_dispatch:  # Exécution manuelle
 
 permissions:
   contents: write  # Permet d'effectuer un push sur le dépôt
